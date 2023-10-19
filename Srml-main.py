@@ -27,7 +27,11 @@ class SRMLInterpreter:
         elif element.tag == "p":
             content = ''.join(self._interpret_element(child) for child in element)
             return f'<p>{content}</p>\n'
-        # ... Continue for other HTML tags as needed
+        elif element.tag == "h1":
+            return f'<h1>{element.text or ""}</h1>\n'
+        elif element.tag == "h2":
+            return f'<h2>{element.text or ""}</h2>\n'
+        # ... 추가적으로 필요한 HTML 태그들을 이곳에 확장
 
     def _interpret_client(self, client):
         for element in client:
@@ -48,7 +52,7 @@ class SRMLInterpreter:
             content = f.read()
             return self.interpret_from_string(content)
 
-# Usage example:
+# 사용 예제:
 interpreter = SRMLInterpreter()
 html_output = interpreter.interpret_from_file('path_to_file.srml')
 print(html_output)
