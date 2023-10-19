@@ -1,0 +1,31 @@
+<srml>
+    <server>
+        <function>
+            <![CDATA[
+            def get_posts():
+                # This function will retrieve a list of posts from the database.
+                # For simplicity, we're just returning a static list.
+                return [{"title": "First post", "content": "This is the content of the first post."}]
+            ]]>
+        </function>
+        <function>
+            <![CDATA[
+            def add_post(title, content):
+                # This function will add a post to the database.
+                # For simplicity, we'll just print it.
+                print(f"New post: {title}, {content}")
+            ]]>
+        </function>
+    </server>
+    <client>
+        <div id="posts">
+            <!-- This is a placeholder for where the posts will be displayed -->
+            <p>No posts available.</p>
+        </div>
+        <div id="new-post-form">
+            <input type="text" name="title" placeholder="Title" />
+            <textarea name="content" placeholder="Write your post content here..."></textarea>
+            <button onclick="add_post()">Submit</button>
+        </div>
+    </client>
+</srml>
